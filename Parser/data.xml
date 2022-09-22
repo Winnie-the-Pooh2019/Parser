@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<CATALOG>
+<CD>
+<TITLE>Ниссовый Мед</TITLE>
+<ARTIST>Ван Моррисон</ARTIST>
+<COUNTRY>Соединенное Королевство</COUNTRY>
+<COMPANY>Полидор</COMPANY>
+<PRICE>8.20</PRICE>
+<YEAR>1971</YEAR>
+</CD>
+<CD>
+<TITLE>Midt om natten</TITLE>
+<ARTIST>Ким Ларсен</ARTIST>
+<COUNTRY>ЕС</COUNTRY>
+<COMPANY>Смесь</COMPANY>
+<PRICE>7.80</PRICE>
+<YEAR>1983</YEAR>
+</CD>
+<CD>
+<TITLE>Паваротти Гала Концерт</TITLE>
+<ARTIST>Лучиано Паваротти</ARTIST>
+<COUNTRY>Соединенное Королевство</COUNTRY>
+<COMPANY>ДЕККА</COMPANY>
+<PRICE>9.90</PRICE>
+<YEAR>1991</YEAR>
+</CD>
+</CATALOG>
