@@ -11,15 +11,14 @@ namespace Parser
     class Catalog : IStorage<CompactDisk>
     {
         private List<CompactDisk> _disks;
-        private IParse<CompactDisk> _parse;
 
         public List<CompactDisk> Storage { get => _disks; set { _disks = value; } }
-        public IParse<CompactDisk> Parser { get => _parse; set { _parse = value; } }
 
-        public Catalog(string text)
+        public Catalog(List<CompactDisk> data)
         {
-            _parse = new CatalogParser();
-            _disks = _parse.formatParse(text);
+            var dataArray = new CompactDisk[data.Count];
+            data.CopyTo(dataArray);
+            _disks = dataArray.ToList();
         }
 
         public override string ToString()
@@ -65,7 +64,7 @@ namespace Parser
 
     class CatalogParser : IParse<CompactDisk>
     {
-        public List<CompactDisk> formatParse(string filepath)
+        public IStorage<CompactDisk> FormatParse(string filepath)
         {
             XDocument xdoc = XDocument.Load(filepath);
             XElement? firstElement = xdoc.Element("CATALOG");
@@ -89,20 +88,7 @@ namespace Parser
                 result.Add(disk);
             }
 
-            return result;
+            return new Catalog(result);
         }
-    }
-
-    interface IStorage<R> where R : IItem
-    {
-        public IParse<R> Parser { get; set; }
-        public List<R> Storage { get; set; }
-    }
-
-    interface IItem {}
-
-    interface IParse<R> where R : IItem
-    {
-        public List<R> formatParse(string text);
     }
 }
